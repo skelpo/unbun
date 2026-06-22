@@ -90,8 +90,13 @@ That produces a self-contained native `unbun` binary.
 
 ## Limitations
 
-- Bun binaries built with `--bytecode` embed V8 bytecode instead of (or beside)
-  the JS; unbun does not decompile bytecode.
+- Bun binaries built with `--bytecode` are still fully extractable. Bun adds the
+  V8 bytecode for fast startup but keeps the original JavaScript **beside** it
+  (the banner reads `// @bun @bytecode`), so unbun recovers the JS as usual — it
+  just doesn't (and doesn't need to) decompile the bytecode itself. This is how
+  large production apps ship: e.g. Claude Code's `claude` binary is a
+  `bun build --compile --bytecode` executable, and unbun pulls its full ~17MB
+  `cli.js` bundle straight out.
 - Source maps, if embedded, are not currently emitted as separate files.
 - `deno compile` can embed a very large VFS, producing multi-hundred-MB/GB
   binaries — extraction still works but reads the whole file into memory.
