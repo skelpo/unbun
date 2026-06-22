@@ -1,0 +1,17 @@
+# Perry build outputs
+dist/
+*.o
+.perry-cache/
+
+# Compiled binary (produced by `perry compile src/main.ts -o unbun`)
+/unbun
+
+# Generated type stubs (regenerate with `perry types`)
+.perry/types/
+
+# Node modules
+node_modules/
+
+# IDE
+.vscode/
+.idea/
