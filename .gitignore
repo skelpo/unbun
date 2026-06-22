@@ -6,6 +6,9 @@ dist/
 # Compiled binary (produced by `perry compile src/main.ts -o unbun`)
 /unbun
 
+# Extracted sample output — local-only, never committed (may be proprietary)
+/extracted/
+
 # Generated type stubs (regenerate with `perry types`)
 .perry/types/
 
